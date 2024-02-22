@@ -61,7 +61,21 @@ sr.reveal(".home__img, .about__subtitle, .about__text, .skills__img", {
 sr.reveal(".home__social-icon", { interval: 200 });
 sr.reveal(".skills__data, .work__img, .contact__input", { interval: 200 });
 
-var icon = document.getElementById("icon");
-icon.onclick = function () {
+// var icon = document.getElementById("icon");
+// icon.onclick = function () {
+//   document.body.classList.toggle("light-theme");
+// };
+let theme = document.querySelector(".theme");
+theme.addEventListener("click", function () {
+  const sunIcon = this.children[0];
+  const moonIcon = this.children[1];
   document.body.classList.toggle("light-theme");
-};
+
+  if (sunIcon.style.display !== "none") {
+    sunIcon.style.display = "none";
+    moonIcon.style.display = "inline-block";
+  } else {
+    sunIcon.style.display = "inline-block";
+    moonIcon.style.display = "none";
+  }
+});
